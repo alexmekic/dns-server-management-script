@@ -1,5 +1,5 @@
-# DNS Server Setup Script
-Quickly create and manage DNS domains with forward and reverse zones, and populated desired hostnames and associated IP addresses on DNS servers running FreeBSD
+# DNS Server Management Script
+Quickly create and manage DNS domains with forward and reverse zones, and populated desired hostnames and associated IP addresses on DNS servers running FreeBSD (soon available for Linux)
 
 ## Features
 
@@ -11,13 +11,12 @@ Quickly create and manage DNS domains with forward and reverse zones, and popula
 
 ## Requirements
 
-- FreeBSD with `bind914` or later and `bash` package installed
-  - Soon will be available for Linux
+- FreeBSD with `bind914` or later and `bash` packages installed
 
 ## To be added
 
-- Allow other record types to be used when adding entries/hostnames to new or existing domain zones
-- Create a version for Linux
+- Allow other record types to be used when adding entries/hostnames to new or existing domain zones (MX, AAAA, additional NS records, CNAME)
+- Create a version of the script for Linux
 
 ## Release history
 
