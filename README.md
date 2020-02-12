@@ -13,6 +13,18 @@ Quickly create and manage DNS domains with forward and reverse zones, and popula
 
 - FreeBSD with `bind914` or later and `bash` packages installed
 
+## Installation
+
+### Method 1
+
+- Install git via command `pkg install -y git`
+- Type `git clone git://github.com/kuroyoshi10/dns-server-management-script.git` to download the script file
+- Type `chmod +x dns-server-management.sh` and launch the script via `./dns-server-management.sh`
+
+### Method 2
+
+- Manually down the script file to a USB stick or local disk to be transferred via STFTP
+
 ## To be added
 
 - Allow other record types to be used when adding entries/hostnames to new or existing domain zones (MX, AAAA, additional NS records, CNAME)
