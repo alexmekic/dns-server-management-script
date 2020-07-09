@@ -13,7 +13,7 @@ Quickly create and manage DNS domains with forward and reverse zones, and popula
 
 - FreeBSD with `bind914` or later and `bash` packages installed
 
-## Installation
+## Installation (to be updated with released version)
 
 ### Method 1
 
@@ -28,6 +28,7 @@ Quickly create and manage DNS domains with forward and reverse zones, and popula
 ## To be added
 
 - Allow other record types to be used when adding entries/hostnames to new or existing domain zones (MX, AAAA, additional NS records, CNAME)
+- Conditional forwarding
 - Create a version of the script for Linux
 
 ## Release history
