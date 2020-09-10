@@ -11,26 +11,32 @@ Quickly create and manage DNS domains with forward and reverse zones, and popula
 
 ## Requirements
 
-- FreeBSD with `bind914` or later and `bash` packages installed
+FreeBSD
+- FreeBSD 12 with `bind914` or later and `bash` packages installed
+
+Debian
+- Debian 8 or above with `bind` package installed
 
 ## Installation
 
-### Method 1
-
-- Install git via command `pkg install -y git`
-- Type `git clone git://github.com/kuroyoshi10/dns-server-management-script.git` to download the script file
+For FreeBSD:
+- Download script file via `curl https://github.com/alexmekic/dns-server-management-script.sh` to download the script file
 - Type `chmod +x dns-server-management.sh` and launch the script via `./dns-server-management.sh`
 
-### Method 2
-
-- Manually down the script file to a USB stick or local disk to be transferred via STFTP
+For Debian:
+- Download script file via `curl https://github.com/alexmekic/dns-server-management-script-linux.sh` to download the script file
+- Type `chmod +x dns-server-management-linux.sh` and launch the script via `./dns-server-management-linux.sh`
 
 ## To be added
 
 - Allow other record types to be used when adding entries/hostnames to new or existing domain zones (MX, AAAA, additional NS records, CNAME)
-- Create a version of the script for Linux
 
 ## Release history
 
 - 1.0
   - Initial Release
+- 1.1
+  - Linux for Debian version available
+  - Redirected location of zones to the following directories:
+    - FreeBSD: `/usr/local/etc/namedb/zones`
+    - Debian: `/etc/bind/zones`
