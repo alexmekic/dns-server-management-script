@@ -14,12 +14,9 @@ Quickly create and manage DNS domains with forward and reverse zones, and popula
 FreeBSD
 - FreeBSD 12 with `bind914` or later and `bash` packages installed
 
-<<<<<<< HEAD
+
 Debian
 - Debian 8 or above with `bind` package installed
-=======
-## Installation (to be updated with released version)
->>>>>>> 085185f13868d50cd0aed4c66b93e892d9c4b9d7
 
 ## Installation
 
@@ -34,11 +31,6 @@ For Debian:
 ## To be added
 
 - Allow other record types to be used when adding entries/hostnames to new or existing domain zones (MX, AAAA, additional NS records, CNAME)
-<<<<<<< HEAD
-=======
-- Conditional forwarding
-- Create a version of the script for Linux
->>>>>>> 085185f13868d50cd0aed4c66b93e892d9c4b9d7
 
 ## Release history
 
