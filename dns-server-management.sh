@@ -69,7 +69,7 @@ function add_new_zone {
 		read -e -p "Enter new domain zone (0 to exit): " forward_zone
 		if [[ $forward_zone == "0" ]]; then
 			return 1
-		elif find /usr/local/etc/namedb/dynamic $forward_zone > /dev/null ; then
+		elif find /usr/local/etc/namedb/zones $forward_zone > /dev/null ; then
 			echo "Domain already exists"
 		else
 			break
@@ -95,10 +95,10 @@ function add_new_zone {
 					echo "Checking connectivity for $sec_DNS_IP"
 					ping -c 5 $sec_DNS_IP
 					if [ $? -eq 0 ]; then
-                                		echo "Backup DNS server reachable."
-                                		break
+                        echo "Backup DNS server is reachable."
+                        break
 					else
-						echo "Backup DNS server not reachable."
+						echo "Backup DNS server is not reachable."
 						break
 					fi
 				else
@@ -107,7 +107,7 @@ function add_new_zone {
 			done
 			break
 		else
-			echo "Skipping secondary DNS server setup"
+			echo "Skipping secondary DNS server configuration"
 			break
                 fi
         done
@@ -279,12 +279,12 @@ function update_conf_new_master {
 	echo "Updating zone configuration"
 	echo "zone \"$forward_zone\" {
         type master;
-        file \"/usr/local/etc/namedb/dynamic/$forward_zone\";
+        file \"/usr/local/etc/namedb/zones/$forward_zone\";
 	allow-transfer { $secondary_ip; };
 };
 zone \"$reverse_zone\" {
         type master;
-        file \"/usr/local/etc/namedb/dynamic/$reverse_zone\";
+        file \"/usr/local/etc/namedb/zones/$reverse_zone\";
 	allow-transfer { $secondary_ip; };
 };" >> /usr/local/etc/namedb/named.conf.local
 	echo "name.conf.local file updated for domain $forward_zone"
@@ -316,12 +316,12 @@ function update_conf_new_slave {
                                                 echo "Primary DNS server is reachable. Adding to conf file."
                                                 echo "zone \"$forward_zone\" {
         type slave;
-        file \"/usr/local/etc/namedb/dynamic/$forward_zone\";
+        file \"/usr/local/etc/namedb/zones/$forward_zone\";
         masters { $primary_ip; };
 };
 zone \"$reverse_ip.in-addr.arpa\" {
         type slave;
-        file \"/usr/local/etc/namedb/dynamic/$reverse_ip.in-addr.arpa\";
+        file \"/usr/local/etc/namedb/zones/$reverse_ip.in-addr.arpa\";
         masters { $primary_ip; };
 };" >> /usr/local/etc/namedb/named.conf.local
                                                 break
@@ -340,7 +340,7 @@ function view_conf {
 }
 
 function view_zone {
-        cd "/usr/local/etc/namedb/dynamic/"
+        cd "/usr/local/etc/namedb/zones/"
         while true; do
                 read -e -p "Enter domain to view (0 to exit): " zone_view
                 if [[ $zone_view == "0" ]]; then
@@ -371,17 +371,16 @@ function restart_bind {
 
 main_int=$(ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+')
 main_ip=$(ifconfig | grep -A 6 $main_int | grep 'inet' | cut -d ' ' -f 2)
-#main_ip=$(ip a | grep -A 1 'eth0' | grep 'inet' | cut -d ' ' -f 6 | cut -d '/' -f 1)
 
 if ! ip_validity $main_ip; then
 	echo "ERROR: No active IP address found on interface $main_int. Cannot continue"
 	exit 1;
 fi
 
-cd "/usr/local/etc/namedb/dynamic/"
+cd "/usr/local/etc/namedb/"
 while true; do
 	echo ""
-	echo "DNS Server Menu"
+	echo "DNS Server Management for FreeBSD v1.1"
 	echo ""
 	echo "Active IP Address on $main_int: $main_ip"
 	echo ""
