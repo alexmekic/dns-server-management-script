@@ -1,19 +1,16 @@
-# DNS Server Management Script
-Quickly create and manage DNS domains with forward and reverse zones, and populated desired hostnames and associated IP addresses on DNS servers running FreeBSD (soon available for Linux)
+# Manage a DNS Server and Quickly Create Local Domain Zones
 
 ## Features
 
-- Add new DNS domain zones, allowing user to specify network ID, hostnames of client/server computers and their associated IP address with default settings
-- Add new DNS domain zones within a single server or main/backup DNS server environment
-- Remove DNS domain zones
-- Add or remove hostname and associated IP addresses to existing domain zones
-- Add domain zones to the server as either a master or slave zone
+- Add/remove new DNS domain zones
+- Add/remove hostname to existing domain zones
+- Add domain zones as either master or slave zone
+- Available versions for Debian and FreeBSD
 
 ## Requirements
 
 FreeBSD
 - FreeBSD 12 with `bind914` or later and `bash` packages installed
-
 
 Debian
 - Debian 8 or above with `bind` package installed
