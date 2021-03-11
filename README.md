@@ -18,11 +18,11 @@ Debian
 ## Installation
 
 For FreeBSD:
-- Download script file via `curl https://github.com/alexmekic/dns-server-management-script.sh` to download the script file
+- Download script file via `curl -L -O https://github.com/alexmekic/dns-server-management-script.sh` to download the script file
 - Type `chmod +x dns-server-management.sh` and launch the script via `./dns-server-management.sh`
 
 For Debian:
-- Download script file via `curl https://github.com/alexmekic/dns-server-management-script-linux.sh` to download the script file
+- Download script file via `curl -L -O https://github.com/alexmekic/dns-server-management-script-linux.sh` to download the script file
 - Type `chmod +x dns-server-management-linux.sh` and launch the script via `./dns-server-management-linux.sh`
 
 ## To be added
